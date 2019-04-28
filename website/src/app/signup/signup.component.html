@@ -1,0 +1,33 @@
+<html>
+  <body>
+      <form #userForm="ngForm" (ngSubmit)="save(userForm.value)" style="border:1px solid #ccc">
+          <div class="container">
+            <h1>Sign Up</h1>
+            <p>Please fill in this form to create an account.</p>
+            <hr>
+            <input type="hidden" name="href" [(ngModel)]="user.href">
+        
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" [(ngModel)]="user.email" name="email" required><br>
+        
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" [(ngModel)]="user.password" name="password" required><br>
+        
+            <label for="psw-repeat"><b>Repeat Password</b></label>
+            <input type="password" placeholder="Repeat Password" name="psw-repeat" required><br>
+      
+            <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+        
+            <div class="clearfix">
+              <button type="submit" class="signupbtn"[disabled]="!userForm.form.valid" [routerLink]="['/user-add']">Sign Up</button>
+            </div>
+          </div>
+        </form>
+
+        <!-- no use for listing , its just to check if the server api is successfully sending data -->
+        <!-- List of other users:
+        <div *ngFor= "let user of users">{{user.email}}</div>
+         -->
+
+  </body>
+</html>
